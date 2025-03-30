@@ -9,7 +9,7 @@ export async function runBenchmark(options: BenchmarkOptions) {
   try {
     new URL(url);
   } catch (e) {
-    throw new Error("URL inválida");
+    throw new Error("Invalid URL");
   }
 
   console.log(`🔎 Benchmarking API: ${url}`);
