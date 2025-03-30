@@ -21,6 +21,9 @@ After installing the package, you can use it to benchmark an API. Here's an exam
 api-bench-cli-mateus https://jsonplaceholder.typicode.com/posts GET -r 5 -d 200
 ```
 
+### You should get a result like this:
+<img width="1025" alt="Captura de Tela 2025-03-30 às 17 06 42" src="https://github.com/user-attachments/assets/0a65112e-aba2-49b2-80cd-85b2615b3839" />
+
 ### Parameters:
 
 - **url** (string): The URL of the API you want to benchmark.
