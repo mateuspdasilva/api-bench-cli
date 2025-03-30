@@ -6,7 +6,13 @@ export async function runBenchmark(options: BenchmarkOptions) {
   const times: number[] = [];
   const results: BenchmarkResult[] = [];
 
-  console.log(`🔎 Testing API: ${url}`);
+  try {
+    new URL(url);
+  } catch (e) {
+    throw new Error("URL inválida");
+  }
+
+  console.log(`🔎 Benchmarking API: ${url}`);
   console.log(`📌 Sending ${requests} requests with ${delay}ms interval\n`);
 
   for (let i = 0; i < requests; i++) {
@@ -20,7 +26,7 @@ export async function runBenchmark(options: BenchmarkOptions) {
 
       console.log(`✅ [${i + 1}/${requests}] Status: ${response.status}, Time: ${responseTime.toFixed(2)}ms`);
     } catch (error: any) {
-      console.error(`❌ [${i + 1}/${requests}] Error: ${error.message}`);
+        throw new Error("Error while testing API");
     }
 
     if (i < requests - 1) await new Promise((res) => setTimeout(res, delay));
